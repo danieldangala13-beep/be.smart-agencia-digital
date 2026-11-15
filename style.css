@@ -1,0 +1,2375 @@
+
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0B0B0B;
+  font-family: 'Sora', sans-serif;
+  padding-top: 92px;
+}
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+.navbar {
+  width: 100%;
+  min-height: 92px;
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #0B0B0B;
+  border-bottom: 1px solid rgba(245, 197, 66, 0.18);
+    top: 0;
+    left: 0;
+    right: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: auto;
+    height: 100px;
+    flex-shrink: 0;
+    text-decoration: none;
+    animation: logoZoom 3s ease-in-out infinite;
+}
+
+.logo img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    object-position: center;
+    transition: transform .4s ease, filter .4s ease;
+}
+
+.logo-text {
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.logo-text span {
+    color: #F5C542;
+    margin-left: 5px;
+}
+
+@keyframes logoZoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 8px rgba(245,197,66,.35));
+}
+
+.logo:hover img {
+    transform: scale(1.06) rotate(-2deg);
+}
+
+@media (max-width: 760px) {
+    .logo {
+        height: 62px;
+        gap: 8px;
+    }
+
+    .logo img {
+        width: 62px;
+        height: 62px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo-text {
+        font-size: 18px;
+    }
+}
+
+
+
+/* ==============================
+   MENU DE NAVEGAÇÃO
+============================== */
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-menu a {
+  position: relative;
+
+  color: #B8B8B8;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Linha dourada */
+
+.nav-menu a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+
+  width: 0;
+  height: 2px;
+
+  background: #F5C542;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #F5C542;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+
+/* ==============================
+   BOTÃO DE CONTACTO
+============================== */
+
+
+/* ==============================
+   BOTÃO DE CONTACTO — SEM CAIXA
+============================== */
+
+.nav-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    color: #F5C542;
+    background: transparent;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Linha dourada animada */
+.nav-contact::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 2px;
+    background: #F5C542;
+    transform: scaleX(0.35);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.nav-contact:hover {
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.nav-contact:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+/* ==============================
+   BOTÃO MENU MOBILE
+============================== */
+
+.menu-toggle {
+  display: none;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+
+  width: 27px;
+  height: 2px;
+
+  margin: 7px 0;
+
+  background: #F5C542;
+  transition: 0.3s ease;
+}
+
+
+/* ==============================
+   TABLETS
+============================== */
+
+@media (max-width: 1100px) {
+
+  .navbar {
+    padding: 0 4%;
+  }
+
+  .nav-menu {
+    gap: 17px;
+  }
+
+  .nav-menu a {
+    font-size: 11px;
+  }
+
+  .nav-contact {
+    padding: 12px 0;
+    font-size: 10px;
+}
+
+}
+
+
+/* ==============================
+   TELEMÓVEIS
+============================== */
+
+@media (max-width: 760px) {
+
+  .navbar {
+    min-height: 76px;
+    padding: 0 6%;
+    body {
+    padding-top: 76px;
+}
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 1002;
+  }
+
+  .nav-contact {
+    display: none;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 76px;
+    left: 0;
+
+    width: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0;
+    padding: 15px 6% 25px;
+
+    background: #0B0B0B;
+    border-bottom: 1px solid rgba(245, 197, 66, 0.2);
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-menu a {
+    width: 100%;
+
+    padding: 17px 0;
+
+    font-size: 13px;
+    color: #FFFFFF;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .nav-menu a::after {
+    display: none;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #F5C542;
+  }
+
+}
+
+
+/* ==============================
+   ECRÃS MUITO PEQUENOS
+============================== */
+
+@media (max-width: 360px) {
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .navbar {
+    padding: 0 5%;
+  }
+}
+
+/* ========================================
+   BE SMART — HERO EDITORIAL
+======================================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 680px;
+    padding: 38px 9% 100px;
+    display: flex;
+    align-items: center;
+    background: #0B0B0B;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* Identificação */
+.hero-label {
+    display: block;
+    margin-bottom: 55px;
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+/* Título */
+.hero h1 {
+    max-width: 1050px;
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(42px, 7vw, 88px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #F5C542;
+}
+
+/* Apresentação */
+.hero-description {
+    max-width: 540px;
+    margin-top: 42px;
+    margin-left: 8px;
+    padding-left: 22px;
+    border-left: 1px solid #F5C542;
+}
+
+.hero-description p {
+    color: #B8B8B8;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 2;
+}
+
+/* Assinatura */
+.hero-signature {
+    margin-top: 65px;
+    margin-left: 8px;
+    color: #777777;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 620px;
+        padding: 110px 7% 90px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 600px;
+        padding: 100px 6% 80px;
+    }
+
+    .hero-label {
+        margin-bottom: 40px;
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 10vw, 55px);
+        line-height: 1.2;
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        margin-top: 30px;
+        margin-left: 0;
+        padding-left: 15px;
+    }
+
+    .hero-description p {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .hero-signature {
+        margin-top: 45px;
+        margin-left: 0;
+        font-size: 8px;
+    }
+}
+.hero-flag {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: translateY(-35px);
+    opacity: 0.35;
+
+    pointer-events: none;
+    user-select: none;
+
+    /* Sombra e desaparecimento gradual à esquerda */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 48%,
+        rgba(0, 0, 0, 0.15) 55%,
+        rgba(0, 0, 0, 0.75) 68%,
+        #000000 82%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 48%,
+        rgba(0, 0, 0, 0.15) 55%,
+        rgba(0, 0, 0, 0.75) 68%,
+        #000000 82%
+    );
+
+    filter: brightness(0.65) contrast(1.15);
+}
+
+/* ========================================
+   BE SMART — QUEM SOMOS
+======================================== */
+
+.about-section {
+    width: 100%;
+    padding: 85px 9% 65px;
+    background: #0B0B0B;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+.about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 65px;
+}
+
+.about-label {
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.about-country {
+    color: #777777;
+    font-family: 'Sora', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* APRESENTAÇÃO */
+
+.about-introduction {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: end;
+    gap: 65px;
+}
+
+.about-index {
+    display: block;
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+}
+
+.about-introduction h2 {
+    max-width: 720px;
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(32px, 4vw, 49px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1.8px;
+    margin: 0;
+}
+
+.be-highlight {
+    color: #F5C542;
+}
+
+.about-description {
+    padding-bottom: 5px;
+}
+
+.about-description p {
+    color: #B8B8B8;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 0 16px;
+}
+
+/* SEPARADOR */
+
+.about-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(245, 197, 66, 0.3);
+    margin: 65px 0 35px;
+}
+
+/* MISSÃO, VISÃO E POSICIONAMENTO */
+
+.about-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.about-pillar {
+    position: relative;
+    min-height: 245px;
+    padding: 30px 27px;
+    background: #111111;
+    border: 1px solid rgba(245, 197, 66, 0.45);
+    border-radius: 8px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.about-pillar:hover {
+    transform: translateY(-4px);
+    border-color: #F5C542;
+    background: #17140D;
+
+    box-shadow:
+        0 8px 25px rgba(245, 197, 66, 0.12),
+        0 0 12px rgba(245, 197, 66, 0.08);
+}
+
+.pillar-number {
+    display: block;
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.about-pillar h3 {
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 0 0 15px;
+}
+
+.about-pillar p {
+    color: #B8B8B8;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+/* ASSINATURA */
+
+.about-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about-bottom span {
+    color: #777777;
+    font-family: 'Sora', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .about-section {
+        padding: 70px 7% 55px;
+    }
+
+    .about-introduction {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .about-introduction h2 {
+        max-width: 750px;
+    }
+
+    .about-description {
+        max-width: 700px;
+    }
+
+    .about-pillars {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* TELEMÓVEL */
+
+@media (max-width: 600px) {
+
+    .about-section {
+        padding: 55px 6% 40px;
+    }
+
+    .about-header {
+        margin-bottom: 40px;
+    }
+
+    .about-label {
+        font-size: 9px;
+    }
+
+    .about-country {
+        font-size: 8px;
+    }
+
+    .about-introduction {
+        gap: 20px;
+    }
+
+    .about-introduction h2 {
+        font-size: clamp(29px, 8vw, 38px);
+        line-height: 1.25;
+        letter-spacing: -1px;
+    }
+
+    .about-description p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .about-divider {
+        margin: 38px 0 25px;
+    }
+
+    .about-pillars {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .about-pillar {
+        min-height: auto;
+        padding: 25px 23px;
+    }
+
+    .pillar-number {
+        margin-bottom: 22px;
+    }
+
+    .about-bottom {
+        margin-top: 30px;
+        gap: 15px;
+    }
+
+    .about-bottom span {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+}
+
+/* ==========================================
+   BE SMART — SECÇÃO DE SERVIÇOS
+========================================== */
+
+.services {
+    width: 100%;
+    padding: 90px 9%;
+    background: #0B0B0B;
+    color: #FFFFFF;
+}
+
+.services .container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+.section-header {
+    max-width: 750px;
+    margin-bottom: 55px;
+}
+
+.section-header.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-label {
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1.8px;
+    margin-bottom: 16px;
+}
+
+.section-header h2 span {
+    color: #F5C542;
+}
+
+.section-description {
+    max-width: 540px;
+    margin: 0 auto;
+    color: #AFAFAF;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* GRELHA DE SERVIÇOS */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* CARTÕES DE SERVIÇOS */
+.service-card {
+    background: #0B0B0B;
+    border: 1.5px solid #F5C542;
+    border-radius: 12px;
+    padding: 42px 32px;
+    min-height: 310px;
+    position: relative;
+
+    box-shadow: 0 0 10px rgba(245, 197, 66, 0.12);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+}
+
+/* ÍCONES */
+.service-icon {
+    color: #F5C542;
+    font-size: 35px;
+    margin-bottom: 28px;
+}
+
+/* TÍTULOS */
+.service-card h3 {
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* DESCRIÇÕES */
+.service-card p {
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+/* EFEITO AO PASSAR O RATO */
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: #F5C542;
+
+    box-shadow:
+        0 0 12px rgba(245, 197, 66, 0.35),
+        0 0 25px rgba(245, 197, 66, 0.18);
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+/* TABLETS */
+
+@media (max-width: 1050px) {
+
+    .services {
+        padding: 70px 6%;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .service-card {
+        padding: 32px 25px;
+    }
+}
+
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+
+    .services {
+        padding: 55px 6%;
+    }
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .section-header h2 {
+        font-size: clamp(27px, 7vw, 34px);
+        letter-spacing: -1px;
+    }
+
+    .section-description {
+        font-size: 12px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .service-card {
+        min-height: 250px;
+        padding: 30px 24px;
+    }
+
+    .service-card h3 {
+        font-size: 17px;
+    }
+
+    .service-card p {
+        font-size: 12px;
+    }
+}
+
+
+/* ==========================================
+   BE SMART — ENQUADRAMENTO DA EQUIPA
+========================================== */
+
+/* COMPUTADOR */
+.team-stage {
+    width: 100%;
+    min-height: 680px;
+    height: 680px;
+}
+
+.team-card {
+    width: 410px;
+    height: 570px;
+}
+
+
+.team-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #191919;
+}
+
+.team-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+
+    filter: none;
+    opacity: 1;
+    image-rendering: auto;
+
+    transform: none;
+}
+
+.team-image .team-image-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(16px) brightness(0.55);
+    transform: scale(1.12);
+    opacity: 0.9;
+}
+
+.team-image .team-image-main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+
+
+.team-info {
+    height: 150px;
+    padding: 22px 25px;
+    overflow: hidden;
+}
+
+
+/* TABLETS */
+@media (max-width: 600px) {
+    .team-image img {
+        object-fit: contain !important;
+        object-position: center center !important;
+    }
+
+    .team-card {
+        width: 340px;
+        height: 490px;
+    }
+
+    .team-image {
+        height: 350px;
+    }
+
+    .team-info {
+        height: 140px;
+        padding: 18px 20px;
+    }
+
+    .team-info h3 {
+        font-size: 16px;
+    }
+}
+
+
+/* TELEMÓVEIS */
+@media (max-width: 600px) {
+    .team-section {
+        padding: 50px 4% 45px;
+    }
+
+    .team-heading {
+        margin-bottom: 20px;
+    }
+
+    .team-heading h2 {
+        font-size: clamp(26px, 7vw, 30px);
+        letter-spacing: -1px;
+    }
+
+    .team-heading p {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .team-stage {
+        height: 490px;
+    }
+
+    .team-card {
+        width: 78vw;
+        max-width: 300px;
+        height: 430px;
+    }
+
+    .team-image {
+        height: 310px;
+    }
+
+    .team-image img {
+        object-fit: contain;
+        object-position: center center;
+    }
+
+    .team-info {
+        height: 120px;
+        padding: 15px 17px;
+    }
+
+    .team-info h3 {
+        font-size: 14px;
+    }
+
+    .team-info p {
+        font-size: 10px;
+    }
+}
+
+
+/* TELEMÓVEIS MUITO PEQUENOS */
+@media (max-width: 360px) {
+    .team-card {
+        width: 76vw;
+        max-width: 270px;
+    }
+
+    .team-image {
+        height: 310px;
+    }
+}
+
+/* CARTÕES */
+
+.service-card {
+    min-width: 0;
+    min-height: 350px;
+    padding: 38px 26px;
+
+    background: #151515;
+    border: none;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.30);
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* FLUTUAÇÃO E SOMBRA */
+
+.service-card:hover {
+    transform: translateY(-11px);
+    background: #1C1911;
+
+    box-shadow:
+        0 22px 40px rgba(0, 0, 0, 0.45),
+        0 8px 25px rgba(245, 197, 66, 0.10);
+}
+
+/* TÍTULOS */
+
+.service-card h3 {
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.4px;
+    margin: 0;
+}
+
+/* DETALHE DOURADO */
+
+.service-divider {
+    width: 45px;
+    height: 2px;
+    background: #F5C542;
+    margin: 25px 0 22px;
+}
+
+/* DESCRIÇÃO */
+
+.service-card p {
+    color: #B5B5B5;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0 0 28px;
+}
+
+/* CATEGORIA */
+
+.service-category {
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-top: auto;
+}
+
+/* TABLETS */
+
+@media (max-width: 1050px) {
+
+   @media (max-width: 1050px) {
+
+    .team-stage {
+        height: 600px;
+    }
+
+    .team-card {
+        width: 340px;
+        height: 490px;
+    }
+
+    .team-image {
+        height: 350px;
+    }
+
+    .team-info {
+        height: 140px;
+    }
+}
+ }
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+
+    @media (max-width: 600px) {
+
+    .team-stage {
+        height: 490px;
+    }
+
+    .team-card {
+        width: 78vw;
+        max-width: 340px;
+        height: 450px;
+    }
+
+    .team-image {
+        height: 330px;
+    }
+
+    .team-info {
+        height: 120px;
+        padding: 15px 17px;
+    }
+
+    .team-info h3 {
+        font-size: 15px;
+    }
+
+    .team-info p {
+        font-size: 10px;
+    }
+}
+}
+/* MOVIMENTO REDUZIDO */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-card {
+        transition: none;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+}
+
+
+/* =====================================
+   EQUIPA BE SMART — CARROSSEL 3D
+===================================== */
+
+.team-section {
+    width: 100%;
+    padding: 85px 7% 75px;
+    background: #11100D;
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+.team-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+.team-heading {
+    max-width: 780px;
+    margin-bottom: 35px;
+}
+
+.team-label {
+    display: inline-block;
+    color: #F5C542;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.team-heading h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.15;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+}
+
+.team-heading h2 span {
+    display: block;
+    color: #F5C542;
+}
+
+.team-heading p {
+    max-width: 620px;
+    color: #B9B9B9;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* PALCO DO CARROSSEL */
+
+.team-experience {
+    width: 100%;
+    position: relative;
+}
+
+.team-stage {
+    position: relative;
+    width: 100%;
+    height: 610px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+}
+
+/* CARTÕES */
+
+.team-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 340px;
+    height: 490px;
+
+    background: #191919;
+    border: 1px solid #F5C542;
+    border-radius: 5px;
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.45),
+        0 0 12px rgba(245, 197, 66, 0.08);
+
+    transition:
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1.2s ease,
+        box-shadow 1.2s ease;
+
+    backface-visibility: hidden;
+}
+
+/* MOLDURA INTERIOR */
+
+.team-card::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid rgba(245, 197, 66, 0.35);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* POSIÇÕES DO CARROSSEL */
+
+.team-card.position-1 {
+    transform: translate(-50%, -50%) translateX(0) scale(1.08);
+    z-index: 4;
+    opacity: 1;
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.6),
+        0 0 24px rgba(245, 197, 66, 0.18);
+}
+
+.team-card.position-2 {
+    transform: translate(-50%, -50%) translateX(300px) scale(0.88);
+    z-index: 3;
+    opacity: 0.85;
+}
+
+.team-card.position-3 {
+    transform: translate(-50%, -50%) translateY(-85px) scale(0.76);
+    z-index: 1;
+    opacity: 0.55;
+}
+
+.team-card.position-4 {
+    transform: translate(-50%, -50%) translateX(-300px) scale(0.88);
+    z-index: 3;
+    opacity: 0.85;
+}
+
+/* FOTOGRAFIAS */
+
+.team-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #222222;
+}
+
+.team-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+/* INFORMAÇÕES */
+
+.team-info {
+    min-height: 140px;
+    padding: 18px 20px;
+    background: #191919;
+    position: relative;
+    z-index: 1;
+}
+
+.team-member-number {
+    display: block;
+    color: #F5C542;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.team-info h3 {
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 7px;
+}
+
+.team-info p {
+    color: #B5B5B5;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* LEGENDA */
+
+.team-caption {
+    display: block;
+    text-align: center;
+    color: #F5C542;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+/* TABLETS */
+
+@media (max-width: 1050px) {
+    .team-stage {
+        height: 550px;
+    }
+
+    .team-card {
+        width: 290px;
+        height: 430px;
+    }
+
+    .team-image {
+        height: 300px;
+    }
+
+    .team-info {
+        min-height: 130px;
+        padding: 15px;
+    }
+
+    .team-card.position-2 {
+        transform: translate(-50%, -50%) translateX(220px) scale(0.82);
+    }
+
+    .team-card.position-4 {
+        transform: translate(-50%, -50%) translateX(-220px) scale(0.82);
+    }
+
+    .team-card.position-3 {
+        transform: translate(-50%, -50%) translateY(-70px) scale(0.70);
+    }
+}
+
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+    .team-section {
+        padding: 55px 4% 45px;
+    }
+
+    .team-heading h2 {
+        font-size: 30px;
+    }
+
+    .team-heading p {
+        font-size: 13px;
+    }
+
+    .team-stage {
+        height: 440px;
+    }
+
+    .team-card {
+        width: 68vw;
+        max-width: 270px;
+        height: 370px;
+    }
+
+    .team-image {
+        height: 255px;
+    }
+
+    .team-info {
+        min-height: 115px;
+        padding: 13px;
+    }
+
+    .team-info h3 {
+        font-size: 14px;
+    }
+
+    .team-info p {
+        font-size: 11px;
+    }
+
+    .team-card.position-2 {
+        transform: translate(-50%, -50%) translateX(25vw) scale(0.70);
+    }
+
+    .team-card.position-4 {
+        transform: translate(-50%, -50%) translateX(-25vw) scale(0.70);
+    }
+
+    .team-card.position-3 {
+        transform: translate(-50%, -50%) translateY(-65px) scale(0.58);
+    }
+}
+
+/* ÁREA DAS FOTOGRAFIAS */
+
+
+/* =====================================
+   EQUIPA — VERSÃO CONSOLIDADA
+===================================== */
+
+
+.team-experience {
+    width: 100%;
+    overflow: visible;
+}
+
+.team-stage {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CARTÕES */
+
+.team-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    height: 490px;
+    background: #191919;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+    transition:
+        transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1),
+        box-shadow 1.2s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+}
+
+/* POSIÇÕES: 3 À FRENTE E 1 ATRÁS */
+
+.team-card.position-1 {
+    z-index: 5;
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.team-card.position-2 {
+    z-index: 4;
+    transform: translate(-50%, -50%) translateX(300px) scale(0.88);
+}
+
+.team-card.position-3 {
+    z-index: 2;
+    transform: translate(-50%, -50%) translateY(-85px) scale(0.76);
+}
+
+.team-card.position-4 {
+    z-index: 4;
+    transform: translate(-50%, -50%) translateX(-300px) scale(0.88);
+}
+
+/* FOTOGRAFIAS */
+
+.team-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #101010;
+}
+
+.team-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    opacity: 1;
+    filter: none;
+}
+
+/* INFORMAÇÕES */
+
+.team-info {
+    min-height: 140px;
+    height: auto;
+    padding: 18px 20px;
+    box-sizing: border-box;
+    background: #191919;
+    overflow: visible;
+}
+
+.team-member-number {
+    display: block;
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    margin-bottom: 8px;
+}
+
+.team-info h3 {
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+
+.team-info p {
+    color: #B5B5B5;
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.team-caption {
+    display: block;
+    text-align: center;
+    color: #777777;
+    font-family: 'Sora', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* TABLETS */
+
+@media (max-width: 1050px) {
+    .team-stage {
+        height: 540px;
+    }
+
+    .team-card {
+        width: 290px;
+        height: 430px;
+    }
+
+    .team-image {
+        height: 300px;
+    }
+
+    .team-info {
+        min-height: 130px;
+        padding: 16px 18px;
+    }
+
+    .team-card.position-1 {
+        transform: translate(-50%, -50%) scale(1.04);
+    }
+
+    .team-card.position-2 {
+        transform: translate(-50%, -50%) translateX(220px) scale(0.78);
+    }
+
+    .team-card.position-3 {
+        transform: translate(-50%, -50%) translateY(-75px) scale(0.68);
+    }
+
+    .team-card.position-4 {
+        transform: translate(-50%, -50%) translateX(-220px) scale(0.78);
+    }
+}
+
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+    .team-section {
+        padding: 50px 4% 45px;
+    }
+
+    .team-stage {
+        height: 440px;
+    }
+
+    .team-card {
+        width: 68vw;
+        max-width: 270px;
+        height: 370px;
+    }
+
+    .team-image {
+        height: 260px;
+    }
+
+    .team-image img {
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .team-info {
+        min-height: 110px;
+        padding: 13px 15px;
+    }
+
+    .team-info h3 {
+        font-size: 14px;
+    }
+
+    .team-info p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .team-card.position-1 {
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+
+    .team-card.position-2 {
+        transform: translate(-50%, -50%) translateX(25vw) scale(0.70);
+    }
+
+    .team-card.position-3 {
+        transform: translate(-50%, -50%) translateY(-75px) scale(0.60);
+    }
+
+    .team-card.position-4 {
+        transform: translate(-50%, -50%) translateX(-25vw) scale(0.70);
+    }
+}
+
+/* CARTÕES DE SERVIÇOS */
+.service-card {
+    background: #0B0B0B;
+    border: 1.5px solid #F5C542;
+    border-radius: 12px;
+    padding: 42px 32px;
+    min-height: 310px;
+    position: relative;
+
+    box-shadow: 0 0 10px rgba(245, 197, 66, 0.12);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+}
+
+/* TÍTULOS */
+.service-card h3 {
+    color: #F5C542;
+    font-family: 'Sora', sans-serif;
+     font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+/* DESCRIÇÕES */
+.service-card p {
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+/* EFEITO AO PASSAR O RATO */
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: #F5C542;
+
+    box-shadow:
+        0 0 12px rgba(245, 197, 66, 0.35),
+        0 0 25px rgba(245, 197, 66, 0.18);
+}
+/* CORRECÇÃO DE NITIDEZ DAS FOTOGRAFIAS */
+
+.team-card {
+    transform-style: flat;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+}
+
+.team-image {
+    position: relative;
+    transform: translateZ(0);
+    overflow: hidden;
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+
+    filter: none !important;
+    opacity: 1 !important;
+
+    transform: translateZ(0);
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+}
+
+.team-info h3 {
+    color: #F5C542;
+}
+
+/* ==============================
+   CONTACTOS
+============================== */
+
+.contact-section {
+    width: 100%;
+    padding: 100px 7%;
+    background: #0B0B0B;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-label {
+    color: #F5C542;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.contact-container h2 {
+    color: #F5C542;
+    font-size: 38px;
+    font-weight: 800;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.contact-container h3 {
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.contact-container p {
+    color: #BBBBBB;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* BOTÃO COMEÇAR UM PROJECTO */
+
+.contact-project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 35px;
+    padding: 17px 30px;
+
+    background: #F5C542;
+    color: #0B0B0B;
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    border: 1px solid #F5C542;
+    border-radius: 3px;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* SETA */
+
+.contact-project-btn span {
+    display: inline-block;
+    font-size: 19px;
+    transition: transform 0.35s ease;
+}
+
+/* EFEITO AO PASSAR O RATO */
+
+.contact-project-btn:hover {
+    background: transparent;
+    color: #F5C542;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(245, 197, 66, 0.15);
+}
+
+.contact-project-btn:hover span {
+    transform: translateX(6px);
+}
+
+/* CLIQUE */
+
+.contact-project-btn:active {
+    transform: translateY(-1px);
+}
+
+/* CONTACTOS NA MESMA LINHA */
+
+.contact-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    flex-wrap: wrap;
+    margin-top: 55px;
+}
+
+.contact-socials a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.contact-socials a span {
+    color: #F5C542;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.contact-socials a strong {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-socials a:hover strong {
+    color: #F5C542;
+}
+
+
+/* ==============================
+   BOTÃO FLUTUANTE WHATSAPP
+============================== */
+
+.whatsapp-float {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+    color: #FFFFFF;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+
+    z-index: 99999;
+
+    box-shadow:
+        0 0 0 6px rgba(37, 211, 102, 0.15),
+        0 8px 25px rgba(0, 0, 0, 0.4);
+
+    animation: whatsappFloat 2.5s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float svg {
+    width: 37px;
+    height: 37px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.12);
+}
+
+/* ANIMAÇÕES */
+
+@keyframes whatsappFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes projectPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(245, 197, 66, 0.25);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(245, 197, 66, 0);
+    }
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 768px) {
+
+    .contact-section {
+        padding: 75px 6%;
+    }
+
+    .contact-container h2 {
+        font-size: 30px;
+    }
+
+    .contact-container h3 {
+        font-size: 21px;
+    }
+
+    .contact-socials {
+        gap: 30px;
+    }
+
+    .whatsapp-float {
+        width: 58px;
+        height: 58px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .whatsapp-float svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .contact-container h2 {
+        font-size: 26px;
+    }
+
+    .contact-container h3 {
+        font-size: 19px;
+    }
+
+    .contact-socials {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .contact-socials a strong {
+        font-size: 12px;
+    }
+
+    .contact-project-btn {
+        padding: 15px 20px;
+        font-size: 11px;
+    }
+}
+
+/* RESPEITAR PREFERÊNCIA POR MENOS ANIMAÇÃO */
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-float,
+    .contact-project-btn {
+        animation: none;
+    }
+}
+
+/* CONTACTOS E PARCEIROS */
+
+.contact-partners-section {
+    width: 100%;
+    padding: 75px 7%;
+    background: #11100D;
+    color: #FFFFFF;
+}
+
+.contact-partners-container {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* CONTACTOS À ESQUERDA */
+
+.contact-column {
+    text-align: left;
+}
+
+.contact-label,
+.partners-label {
+    color: #F5C542;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.contact-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.contact-socials a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    text-decoration: none;
+}
+
+.contact-socials a span {
+    color: #F5C542;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.contact-socials a strong {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-socials a:hover strong {
+    color: #F5C542;
+}
+
+
+/* PARCEIROS À DIREITA */
+
+.partners-column {
+    text-align: left;
+}
+
+.partners-column h2 {
+    color: #FFFFFF;
+    font-size: 24px;
+    margin: 18px 0 28px;
+}
+
+.partners-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.partner-item {
+    min-height: 65px;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+
+    background: #191919;
+    border: 1px solid rgba(245, 197, 66, 0.3);
+
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    transition: all 0.3s ease;
+}
+
+.partner-item:hover {
+    border-color: #F5C542;
+    transform: translateX(5px);
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .contact-partners-container {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .partners-column h2 {
+        font-size: 22px;
+    }
+
+}
+
+/* CONTACTOS, PARCEIROS E APOIO */
+
+.contact-bottom {
+    max-width: 1250px;
+    margin: 65px auto 0;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 55px;
+    text-align: left;
+}
+
+/* TÍTULOS */
+
+.contact-label,
+.partners-label,
+.support-label {
+    display: block;
+    color: #F5C542;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+/* CONTACTOS */
+
+.contact-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    margin-top: 0;
+}
+
+.contact-socials a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    text-decoration: none;
+}
+
+.contact-socials a span {
+    color: #F5C542;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.contact-socials a strong {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-socials a:hover strong {
+    color: #F5C542;
+}
+
+/* PARCEIROS E APOIO */
+
+.simple-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.simple-list p {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.simple-list p:hover {
+    color: #F5C542;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+    .contact-bottom {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 25px;
+    }
+
+    .contact-column {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-bottom {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contact-column {
+        grid-column: auto;
+    }
+}
