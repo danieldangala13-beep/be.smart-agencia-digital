@@ -2372,4 +2372,30 @@ body {
     .contact-column {
         grid-column: auto;
     }
+}/* ==============================
+   BARRA DE ROLAGEM DOURADA
+============================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B0B0B;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F5C542;
+    border-radius: 10px;
+    border: 2px solid #0B0B0B;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #D9A91E;
+}
+
+/* Firefox */
+html {
+    scrollbar-color: #F5C542 #0B0B0B;
+    scrollbar-width: thin;
 }
